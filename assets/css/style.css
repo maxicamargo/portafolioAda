@@ -1,0 +1,474 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/*definimos los colores como variables*/
+:root {
+    --white: #f9f9f9;
+    --brown: #4a362f;
+    --orange-dark: #bd7a22;
+    --brown-light: #b7ae8f;
+    --black: #36383F;
+    --grey-dark: #978f84;
+    --grey: #d9d9db;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.header {
+    background: var(--brown);
+    top: 0px;
+    width: 100%;
+}
+
+.logo-img {
+    width: 50px;
+    margin: 10px;
+}
+
+main {
+    background: var(--grey-dark);
+}
+
+main section {
+    min-height: 90vh;
+}
+
+main .content-principal {
+    background: var(--grey-dark);
+}
+
+main .content-conocimientos,
+.content-contacto {
+    background: var(--brown-light);
+    padding-bottom: 10px;
+}
+
+
+footer {
+    background: var(--brown);
+    padding: 10px;
+}
+
+/*---------- Mobile First (0-480) ----------*/
+/*---------- Inicio configuracion Menu Hamburguesa ----------*/
+.nav {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: var(--brown);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .5s ease-out;
+}
+
+.menu a {
+    display: block;
+    padding: 30px;
+    color: var(--white);
+
+}
+
+.menu a:hover {
+    background: var(--brown-light);
+}
+
+.hamb {
+    cursor: pointer;
+    float: right;
+    padding: 40px 20px;
+}
+
+/*Linea del medio del menu hamburgues*/
+.hamb-line {
+    background: var(--white);
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+}
+
+/*Configuraciones de la linea superior e inferior del menu hamburguesa*/
+.hamb-line::before,
+.hamb-line::after {
+    background: var(--white);
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+/*Linea superior del menu hamburguesa*/
+.hamb-line::before {
+    top: 5px;
+}
+
+/*Linea inferior del menu hamburguesa*/
+.hamb-line::after {
+    top: -5px;
+}
+
+/*Ocultamos el checkbox*/
+.side-menu {
+    display: none;
+}
+
+/*Configuracion el checked del checkbox para hacer aparecer el menu (nav)*/
+.side-menu:checked~nav {
+    max-height: 100%;
+}
+
+
+/*Ocultamos la linea del medio del menu hamburguesa cuando el checked esta activo*/
+.side-menu:checked~.hamb .hamb-line {
+    background: transparent;
+}
+
+/*Agregamos movimiento a la barra superior del menu hamburguesa cuando el checked esta activo*/
+.side-menu:checked~.hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/*Agregamos movimiento a la barra inferior del menu hamburguesa cuando el checked esta activo*/
+.side-menu:checked~.hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+/*---------- Fin configuracion Menu Hamburguesa ----------*/
+
+/*---------- Inicio configuracion Menu contenedor principal ----------*/
+
+.content-principal .banner {
+    text-align: center;
+}
+
+.content-principal .banner .banner-imagen {
+    width: 100%;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.content-principal .banner .banner-imagen img {
+    width: 250px;
+    height: 100%;
+    margin: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--brown);
+}
+
+.content-principal .banner .banner-texto {
+    padding: 10px;
+}
+
+
+.content-principal .banner .banner-texto h1 {
+    font-size: 26px;
+    padding: 10px;
+}
+
+.content-principal .banner .banner-texto p {
+    font-size: 14px;
+    padding: 5px;
+    margin-top: 15px;
+}
+
+/*---------- Fin configuracion Menu contenedor principal ----------*/
+
+/*---------- Inicio configuraciones generales de contenedores secundarios ----------*/
+
+section .titulo-secciones {
+    text-align: center;
+    padding: 25px 15px;
+}
+
+section .titulo-secciones h2 {
+    font-size: 20px;
+}
+
+.regresar {
+    padding: 10px;
+    margin: 30px 15px;
+    display: flex;
+    justify-content: end;
+}
+
+.regresar a {
+    text-align: center;
+}
+
+/*---------- Fin configuraciones generales de contenedores secundarios ----------*/
+
+/*---------- Inicio configuraciones contenedor conocimientos ----------*/
+
+.content-conocimientos .conocimiento {
+    background: var(--white);
+    width: 180px;
+    margin: 15px auto;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 5px 5px 2px var(--grey-dark);
+}
+
+.content-conocimientos .conocimiento .conocimiento-logo {
+    height: 100px;
+    margin: 15px auto;
+}
+
+.content-conocimientos .conocimiento .content-texto {
+    background: var(--brown);
+    border-radius: 0px 0px 20px 20px;
+}
+
+.content-conocimientos .conocimiento .content-texto h3 {
+    font-size: 18px;
+    color: var(--white);
+    padding: 15px;
+}
+
+/*---------- Fin configuraciones contenedor conocimientos ----------*/
+
+/*---------- Inicio configuraciones contenedor proyectos ----------*/
+
+.card-proyecto {
+    width: 300px;
+    margin: 20px auto;
+    background: var(--orange-dark);
+}
+
+.card-proyecto .proyecto-img {
+    height: 230px;
+    background: var(--white);
+}
+
+.card-proyecto .proyecto-titulo {
+    background: var(--black);
+    padding: 10px;
+}
+
+.card-proyecto h3 {
+    color: var(--white);
+    text-align: center;
+}
+
+.card-proyecto .proyecto-texto {
+    background: var(--brown-light);
+    padding: 10px;
+}
+
+.card-proyecto p {
+    color: var(--black);
+    font-size: 14px;
+}
+
+/*---------- Fin configuraciones contenedor proyectos ----------*/
+
+/*---------- Inicio configuraciones contenedor contacto ----------*/
+
+.content-form {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+.content-form .form-informacion {
+    margin: 15px auto;
+}
+
+.content-form h3 {
+    font-size: 18px;
+    margin: 15px auto;
+}
+
+.content-form p {
+    font-size: 14px;
+    margin: 10px auto;
+}
+
+.content-form ul {
+    text-align: left;
+}
+
+.content-form ul li p {
+    display: inline-block;
+}
+
+.ico-contacto {
+    width: 15px;
+}
+
+.contact-form {
+    border: 1px solid var(--brown);
+    border-radius: 10px;
+    padding: 15px;
+
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input {
+    margin: 7px 0px;
+    font-size: 16px;
+    height: 30px;
+    border-radius: 5px;
+    border-style: none;
+    padding: 0px 10px;
+}
+
+.contact-form textarea {
+    margin: 7px 0px;
+    font-size: 16px;
+    height: 100px;
+    border-radius: 7px;
+    border-style: none;
+    padding: 10px;
+    resize: none;
+}
+
+#btn-enviar {
+    background: var(--brown);
+    color: var(--brown-light);
+}
+
+#btn-enviar:hover {
+    background: var(--grey-dark);
+    color: var(--grey);
+}
+
+/*---------- Fin configuraciones contenedor contacto ----------*/
+
+/*---------- Inicio configuraciones footer ----------*/
+
+footer .contenedor-links ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+footer .contenedor-links a {
+    color: var(--brown-light);
+}
+
+footer .contenedor-redes ul {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 10px 0px;
+}
+
+footer .contenedor-redes img {
+    width: 35px;
+}
+
+footer p {
+    font-size: 12px;
+    text-align: center;
+}
+
+/*---------- Fin configuraciones footer ----------*/
+
+
+/*---------- Inicio de configuraciones responsives ----------*/
+@media (min-width: 481px) {
+
+    .contenedor-conocimientos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 0px 20px;
+
+    }
+
+    footer .contenedor-links ul {
+        justify-content: center;
+        gap: 50px;
+    }
+}
+
+@media (min-width: 770px) {
+
+    .nav {
+        max-height: none;
+        top: 0;
+        position: relative;
+        float: right;
+        width: fit-content;
+        background: transparent;
+    }
+
+    .menu li {
+        float: left;
+    }
+
+    .menu a:hover {
+        background: transparent;
+        color: var(--brown-light);
+
+    }
+
+    .hamb {
+        display: none;
+    }
+
+
+    .contenedor-proyectos{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 0px 10px;
+    }
+
+    footer .contenedor-links ul {
+        gap: 40px;
+    }
+
+}
+
+@media (min-width: 1100px) {
+
+    .content-form{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .form-informacion, .contact-form{
+        width: 50%;
+    }
+
+    .form-informacion{
+        padding: 0px 40px;
+    }
+ 
+    .datos-contacto{
+        margin-top: 50px;
+    }
+
+    .contact-form textarea{
+        height: 150px;
+    }
+
+    footer .contenedor-links ul {
+        gap: 30px;
+    }
+
+}

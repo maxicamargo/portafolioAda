@@ -255,6 +255,15 @@ section .titulo-secciones h2 {
 .card-proyecto .proyecto-img {
     height: 230px;
     background: var(--white);
+    text-align: center;
+    overflow: hidden;
+}
+
+
+.card-proyecto .proyecto-img img{
+    width: 100%;
+    height: auto;
+
 }
 
 .card-proyecto .proyecto-titulo {
